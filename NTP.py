@@ -45,6 +45,7 @@ class NTPClient:
 Stratum: {self.stratum}\nPrecision: {self.precision} ms\nDelay: {self.delay}"
 
 
+
 def main():
     locale.setlocale(locale.LC_ALL, 'de_DE')
     ntpClient = NTPClient("ptbtime1.ptb.de")
