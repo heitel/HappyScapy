@@ -26,16 +26,19 @@ class ICMPClient:
             end = datetime.now()
             diff = (end - start).microseconds / 1000
             # p.show()
-            self.ip_host = p.src
-            self.diff = diff
-            print(self)
+            if p is not None:
+                self.ip_host = p.src
+                self.diff = diff
+                print(self)
+            else:
+                print("Timeout")
 
     def __str__(self):
         return f"Antwort von {self.ip_host} Dauer: {self.diff:.2f} ms"
 
 
 def main():
-    icmpClient = ICMPClient("94.130.171.193", 5)
+    icmpClient = ICMPClient("1.2.3.4", 5)
     icmpClient.request()
 
 
