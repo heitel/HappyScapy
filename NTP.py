@@ -28,7 +28,7 @@ class NTPClient:
         ip = IP(dst=self.ntp_server)
         message = ip / udp / ntp
         p = sr1(message, timeout=2)
-        # p.show()
+        #p.show()
         if p is not None:
             self.stratum = p.payload.payload.stratum
             self.precision = p.payload.payload.precision
@@ -48,7 +48,7 @@ Stratum: {self.stratum}\nPrecision: {self.precision} ms\nDelay: {self.delay}"
 
 def main():
     locale.setlocale(locale.LC_ALL, 'de_DE')
-    ntpClient = NTPClient("ptbtime1.ptb.de")
+    ntpClient = NTPClient("de.pool.ntp.org") #ptbtime1.ptb.de
     ntpClient.request()
     print(ntpClient)
 
